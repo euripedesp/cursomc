@@ -1,7 +1,7 @@
 package com.euripedes.cursomc.resources;
 
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +14,13 @@ import com.euripedes.cursomc.domain.Categoria;
 import com.euripedes.cursomc.services.CategoriaService;
 
 @RestController
-@RequestMapping (value="/categorias")//end point rest
+@RequestMapping (value="/categorias")//end point rest recebe também o id da categoria
 public class CategoriaResource {
 	
 	@Autowired //instancia automaticamente
 	private CategoriaService service;
 	
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/{id}", method=RequestMethod.GET) //id da categoria
 	public ResponseEntity<?> find(@PathVariable Integer id) { //resposta http para rest
 		Categoria obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
