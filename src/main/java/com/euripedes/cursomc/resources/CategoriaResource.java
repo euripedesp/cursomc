@@ -22,8 +22,13 @@ public class CategoriaResource {
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET) //id da categoria
 	public ResponseEntity<?> find(@PathVariable Integer id) { //resposta http para rest
+		
 		Categoria obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
+		}
+
+		//hendler lança resposta http adequada. 
+		
 		
 		/*Categoria cat1 = new Categoria (1, "Informática");
 		Categoria cat2 = new Categoria (2, "escritório");
@@ -33,6 +38,7 @@ public class CategoriaResource {
 		lista.add(cat2);
 		
 		return lista;*/
-	}
+	
 
 }
+
